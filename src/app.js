@@ -13,7 +13,7 @@ boton.addEventListener('click', () => {
 // Hacemos tablero Dinamicamente
 //---------------------------------------------
 const tablero = document.querySelector('.tablero');
-const totalCards = 16;
+const totalCards = 12;
 
 for (let i = 0; i < totalCards; i++) {
     let card = document.createElement('div');
@@ -53,7 +53,7 @@ function shuffleArray(array) {
 }
 
 let numbers = [];
-for (let i = 1; i <= 8; i++) {
+for (let i = 1; i <= 6; i++) {
     numbers.push(i, i);
 }
 
@@ -82,15 +82,13 @@ document.querySelectorAll('.carta').forEach(carta => {
                 if (flippedCards[0].querySelector('.back').textContent === flippedCards[1].querySelector('.back').textContent) {
                     win ++;
                     flippedCards = [];
-                    if (win === 8) { // Verifica si el jugador ha ganado después de hacer una pareja correcta
+                    if (win === 6) { // Verifica si el jugador ha ganado después de hacer una pareja correcta
                         setTimeout(() => {
                             alert('¡Ganaste!');
                             window.location.reload();
                         }, 500);
                     }
-                }else if(win === 8) {
-                    alert('Ganaste');
-                } else {
+                }else {
                     setTimeout(() => {
                         flippedCards.forEach(card => card.classList.remove('flipped'));
                         flippedCards = [];
