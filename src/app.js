@@ -82,14 +82,14 @@ document.querySelectorAll('.carta').forEach(carta => {
 
             if (flippedCards.length === 2) {
                 intentos ++;
-                intentosElement.innerText = intentos;
+P                intentosElement.innerHTML = "Intentos: " + intentos;
 
                 if (flippedCards[0].querySelector('.back').textContent === flippedCards[1].querySelector('.back').textContent) {
                     win ++;
                     flippedCards = [];
                     if (win === 6) { // Verifica si el jugador ha ganado después de hacer una pareja correcta
                         setTimeout(() => {
-                            alert('¡Ganaste!');
+                            alert('¡Ganaste!' + '\n' + 'Intentos: ' + intentos );
                             window.location.reload();
                         }, 500);
                     }
