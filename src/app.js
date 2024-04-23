@@ -70,6 +70,8 @@ back.forEach((back, index) => {
 
 let flippedCards = [];
 let win = 0;
+let intentos = 0;
+let intentosElement = document.getElementById('contador');
 // Array para guardar las cartas volteadas temporalmente
 
 document.querySelectorAll('.carta').forEach(carta => {
@@ -79,6 +81,9 @@ document.querySelectorAll('.carta').forEach(carta => {
             flippedCards.push(this);
 
             if (flippedCards.length === 2) {
+                intentos ++;
+                intentosElement.innerText = intentos;
+
                 if (flippedCards[0].querySelector('.back').textContent === flippedCards[1].querySelector('.back').textContent) {
                     win ++;
                     flippedCards = [];
