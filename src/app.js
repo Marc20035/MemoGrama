@@ -1,3 +1,4 @@
+
 const boton = document.getElementById('start-game');
 const pages = document.querySelectorAll('.page');
 const pagesContainer = document.querySelector('.pages');
@@ -10,25 +11,49 @@ boton.addEventListener('click', () => {
 });
 
 //---------------------------------------------
-// Hacemos tablero Dinamicamente
+// Hacemos tablero Dinámicamente
 //---------------------------------------------
 const tablero = document.querySelector('.tablero');
-const totalCards = 12;
+let totalCards = 4;
+createCards(totalCards, tablero);
 
-for (let i = 0; i < totalCards; i++) {
-    let card = document.createElement('div');
-    card.classList.add('carta');
+document.getElementById('dificultad').addEventListener('change', function() {
+    let dificultad = this.value;
 
-    let back = document.createElement('div');
-    back.classList.add('back');
-    card.appendChild(back);
+    if (dificultad === 'facil') {
+        totalCards = 4;
+    } else if (dificultad === 'medio') {
+        totalCards = 8;
+    } else if (dificultad === 'difícil') {
+        totalCards = 12;
+    }
 
-    let front = document.createElement('div');
-    front.classList.add('front');
-    card.appendChild(front);
+    tablero.innerHTML = '';
+    createCards(totalCards, tablero);
+});
 
-    tablero.appendChild(card);
+
+function createCards(totalCards, tablero) {
+    for (let i = 0; i < totalCards; i++) {
+        // Create the card div and add 'carta' class
+        let card = document.createElement('div');
+        card.classList.add('carta');
+
+        // Create the back of the card and add it to the card
+        let back = document.createElement('div');
+        back.classList.add('back');
+        card.appendChild(back);
+
+        // Create the front of the card and add it to the card
+        let front = document.createElement('div');
+        front.classList.add('front');
+        card.appendChild(front);
+
+        // Append the complete card to the board (tablero)
+        tablero.appendChild(card);
+    }
 }
+
 //---------------------------------------------
 // Hacemos que las cartas se volteen
 //---------------------------------------------
@@ -38,7 +63,7 @@ for (let i = 0; i < totalCards; i++) {
     });
 });*/
 //---------------------------------------------
-// Hacemos que las cartas "Back" contengan un numero y sean aleatorias
+// Hacemos que las cartas "Back" contengan un número y sean aleatorias
 //---------------------------------------------
 
 
@@ -82,15 +107,21 @@ document.querySelectorAll('.carta').forEach(carta => {
 
             if (flippedCards.length === 2) {
                 intentos ++;
-P                intentosElement.innerHTML = "Intentos: " + intentos;
+                intentosElement.innerHTML = "Intentos: " + intentos;
 
                 if (flippedCards[0].querySelector('.back').textContent === flippedCards[1].querySelector('.back').textContent) {
                     win ++;
                     flippedCards = [];
                     if (win === 6) { // Verifica si el jugador ha ganado después de hacer una pareja correcta
                         setTimeout(() => {
-                            alert('¡Ganaste!' + '\n' + 'Intentos: ' + intentos );
-                            window.location.reload();
+                            Swal.fire({
+                                title: '¡Ganaste!',
+                                text: `Has ganado en ${intentos} intentos`,
+                                icon: 'success',
+                                confirmButtonText: 'Volver a jugar'
+                            }).then(() => {
+                                window.location.reload();
+                            });
                         }, 500);
                     }
                 }else {
@@ -103,8 +134,3 @@ P                intentosElement.innerHTML = "Intentos: " + intentos;
         }
     });
 });
-
-
-
-
-
