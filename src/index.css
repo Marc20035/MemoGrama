@@ -4,7 +4,7 @@
     font-family: "JetBrains Mono", monospace;
 }
 body{
-    background-color: #9DBCCF;
+    background-color: #282828;
 }
 .pages {
     height: 200vh;
@@ -42,6 +42,7 @@ body{
 
 }
 .texto{
+    color: white;
     font-size: 20px;
     text-align: center;
     font-weight: bolder;
@@ -58,6 +59,10 @@ body{
     border: none;
     cursor: pointer;
 }
+.texto button:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
 .hijo_container_page2{
     height:30vh;
     display: flex;
@@ -73,6 +78,27 @@ body{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
     letter-spacing: 2px; /* Aumenta el espaciado entre letras */
     margin-bottom: 20px; /* Añade espacio debajo del título */
+}
+
+#dificultad {
+    width: 200px; /* Ancho fijo para el select */
+    height: 40px; /* Altura fija para mejorar la accesibilidad */
+    padding: 8px 10px; /* Padding interno para texto */
+    border: 2px solid #ddd; /* Borde sutil y claro */
+    border-radius: 5px; /* Bordes redondeados para un aspecto moderno */
+    background-color: white; /* Fondo blanco */
+    font-size: 16px; /* Tamaño de fuente adecuado para la legibilidad */
+    color: #333; /* Color de texto oscuro para contraste */
+    cursor: pointer; /* Indica que el elemento es interactivo */
+    -webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit/Blink */
+    -moz-appearance: none; /* Desactiva el estilo predeterminado en Firefox */
+    appearance: none; /* Desactiva el estilo predeterminado */
+}
+
+/* Estilo al enfocar el select */
+#dificultad:focus {
+    border-color: #0056b3; /* Color de borde al enfocar para visibilidad */
+    outline: none; /* Remueve el contorno predeterminado al enfocar */
 }
 .tablero {
     margin: 0 20% 0 20%;
@@ -115,8 +141,13 @@ body{
 }
 
 .front {
-    background-color: #fff;
+    background-image: url('img/ironhack.png');
     border: 2px solid #000;
+    background-size: 30%; /* Ajusta la imagen para que se ajuste completamente dentro del contenedor sin cortarse */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-color: white;
+
 }
 
 .back {
