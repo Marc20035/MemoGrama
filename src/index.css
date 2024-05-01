@@ -77,18 +77,18 @@ body{
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
     letter-spacing: 2px; /* Aumenta el espaciado entre letras */
-    margin-bottom: 20px; /* Añade espacio debajo del título */
+    margin-bottom: 20px;
 }
 
 #dificultad {
-    width: 200px; /* Ancho fijo para el select */
-    height: 40px; /* Altura fija para mejorar la accesibilidad */
-    padding: 8px 10px; /* Padding interno para texto */
-    border: 2px solid #ddd; /* Borde sutil y claro */
-    border-radius: 5px; /* Bordes redondeados para un aspecto moderno */
-    background-color: white; /* Fondo blanco */
-    font-size: 16px; /* Tamaño de fuente adecuado para la legibilidad */
-    color: #333; /* Color de texto oscuro para contraste */
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
     cursor: pointer; /* Indica que el elemento es interactivo */
     -webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit/Blink */
     -moz-appearance: none; /* Desactiva el estilo predeterminado en Firefox */
@@ -97,7 +97,7 @@ body{
 
 /* Estilo al enfocar el select */
 #dificultad:focus {
-    border-color: #0056b3; /* Color de borde al enfocar para visibilidad */
+    border-color: #0056b3;
     outline: none; /* Remueve el contorno predeterminado al enfocar */
 }
 .tablero {
@@ -124,7 +124,7 @@ body{
     background-color: #9DBCCF;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s; // Animación suave al voltear
+    transition: transform 0.3s; /* Animación suave al voltear*/
 }
 .front, .back {
     position: absolute;
@@ -150,16 +150,19 @@ body{
 
 }
 
+/* Estilo para el lado trasero de las cartas */
 .back {
-    background-color: #000;
-    border: 2px solid #fff;
-    color: white;
-    transform: rotateY(180deg);
+    background-color: #000; /* Establece el color de fondo del lado trasero de la carta a negro */
+    border: 2px solid #fff; /* Añade un borde blanco sólido de 2px alrededor del lado trasero */
+    color: white; /* Establece el color del texto en el lado trasero a blanco */
+    transform: rotateY(180deg); /* Rota el lado trasero 180 grados en el eje Y, haciendo que inicialmente aparezca volteado */
 }
 
+/* Estilo aplicado a las cartas cuando están volteadas */
 .carta.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Rota la carta 180 grados en el eje Y cuando se aplica la clase 'flipped', mostrando el lado trasero */
 }
+
 
 
 @media (max-width: 425px){
@@ -283,7 +286,6 @@ body{
     .carta.flipped {
         transform: rotateY(180deg);
     }
-
     @media (max-width: 375px){
         .page {
             padding: 10px;  /* Añade un poco de padding para evitar que el contenido toque los bordes */
